@@ -1,0 +1,43 @@
+body {
+  background-color: antiquewhite;
+}
+
+.header {
+  font-size: 30px;
+  color:white;
+  background-color: rgb(4, 90, 61);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionAddTask {
+  background-color: white;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.formAddTask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.inputAddTask {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buttonSubmit {
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 20px;
+  background-color:rgb(4, 90, 61);
+}
