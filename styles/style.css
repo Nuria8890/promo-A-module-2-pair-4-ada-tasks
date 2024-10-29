@@ -12,6 +12,12 @@ body {
   align-items: center;
 }
 
+main {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
 .sectionAddTask {
   background-color: white;
   width: 250px;
@@ -35,6 +41,34 @@ body {
 }
 
 .buttonSubmit {
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 20px;
+  background-color:rgb(4, 90, 61);
+}
+
+.sectionSearchTask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.formSearchTask {
+  display: flex;
+  gap: 10px;
+}
+
+.inputSearchTask {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buttonSearch {
   border: none;
   border-radius: 10px;
   color: white;
