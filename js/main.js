@@ -13,9 +13,28 @@ const tasks = [
   },
 ];
 
+// Pintar la lista en html
 
-/* Pintar en la pantalla todas las tareas que hay en el array tasks
+for (const task of tasks) {
+  ul.innerHTML += `
+  <li class="${task.completed === true ? 'strike' : ""}">
+    <input type="checkbox" id="${task.id}" name="tasks" value="${task.id}">
+    <label for="${task.id}">
+    ${task.name}
+    </label>
+  </li>
+  `
+}
 
-- seleccionar la ul del html
+const handleClick = (event) => {
+  const taskId = parseInt(event.target.id);
+  console.log(taskId);
+  if (!taskId) return;
 
-*/
+//   tasks.find((taskId) => {
+//     console.log('taskId es:', taskId);
+//   })
+}
+
+ul.addEventListener('click', handleClick);
+

@@ -75,3 +75,7 @@ main {
   padding: 5px 20px;
   background-color:rgb(4, 90, 61);
 }
+
+.strike {
+  text-decoration: line-through;
+}
