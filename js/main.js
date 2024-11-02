@@ -33,7 +33,7 @@ if (tasksLocalStorage !== null) {
   paintingTasks(tasksLocalStorage);
 } else {
   // Obten el listado de tareas desde la API
-  fetch(`https://dev.adalab2.es/api/todo/${GITHUB_USER}`)
+  fetch(`https://dev.adalab.es/api/todo/${GITHUB_USER}`)
     .then((response) => {
       return response.json();
     })
