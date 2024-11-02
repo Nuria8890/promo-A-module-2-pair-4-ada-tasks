@@ -7,7 +7,7 @@ const SERVER_URL = `https://dev.adalab.es/api/todo/${GITHUB_USER}`;
 let tasks = [];
 
 // Obtener el listado de tareas desde la API
-fetch("https://dev.adalab.es/api/todo")
+fetch(`https://dev.adalab.es/api/todo/${GITHUB_USER}`)
   .then((response) => {
     return response.json();
   })
