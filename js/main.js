@@ -9,9 +9,9 @@ const btnAdd = document.querySelector(".js-btnAddTask");
 let tasks = [];
 
 // Pinta las tareas en el html
-const paintingTasks = () => {
+const paintingTasks = (tasksToPaint) => {
   ul.innerHTML = "";
-  for (const task of tasks) {
+  for (const task of tasksToPaint) {
     ul.innerHTML += `
       <li class="${task.completed === true ? "strike" : ""}">
         <input type="checkbox" id="${task.id}" name="tasks" value="${
@@ -25,17 +25,27 @@ const paintingTasks = () => {
   }
 };
 
-// Obtener el listado de tareas desde la API
-fetch(`https://dev.adalab.es/api/todo/${GITHUB_USER}`)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    tasks = data.results;
+// Almacena las tareas que hay en localStorage
+const tasksLocalStorage = JSON.parse(localStorage.getItem("tasks"));
 
-    // Pintar la lista en html
-    paintingTasks();
-  });
+if (tasksLocalStorage !== null) {
+  tasks = tasksLocalStorage;
+  paintingTasks(tasksLocalStorage);
+} else {
+  // Obten el listado de tareas desde la API
+  fetch(`https://dev.adalab2.es/api/todo/${GITHUB_USER}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      tasks = data.results;
+      // Pintar la lista en html
+      paintingTasks(tasks);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 
 const handleClickList = (event) => {
   const taskId = parseInt(event.target.id);
@@ -50,7 +60,7 @@ const handleClickList = (event) => {
   checkedTask.completed = !checkedTask.completed;
 
   // Pintar la lista en html
-  paintingTasks();
+  paintingTasks(tasks);
 };
 
 ul.addEventListener("click", handleClickList);
@@ -66,7 +76,9 @@ const handleClickBtnAdd = (event) => {
   tasks.push(newTask);
   console.log("tasks es", tasks);
 
-  paintingTasks();
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  paintingTasks(tasks);
 };
 
 btnAdd.addEventListener("click", handleClickBtnAdd);
