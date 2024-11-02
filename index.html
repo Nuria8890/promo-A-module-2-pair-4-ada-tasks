@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-  <header class="header">Ada Tasks</header>
-  <main>
-    <section class="sectionAddTask">
-      <form class="formAddTask" action="">
-        <div class="divAddTask">
-          <label for="addTask"></label>
-          <input class="inputAddTask" type="text" id="addTask" placeholder="Nueva tarea">
-        </div>
-        <div class="divAddTask">
-          <button class="buttonSubmit" type="submit">Agregar</button>
-        </div>
-      </form>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="header">Ada Tasks</header>
+    <main>
+      <section class="sectionAddTask">
+        <form class="formAddTask" action="">
+          <div class="divAddTask">
+            <label for="addTask"></label>
+            <input
+              class="inputAddTask js-inputAddTask"
+              type="text"
+              id="addTask"
+              placeholder="Nueva tarea"
+            />
+          </div>
+          <div class="divAddTask js-btnAddTask">
+            <button class="buttonSubmit" type="submit">Agregar</button>
+          </div>
+        </form>
+      </section>
 
       <section class="sectionSearchTask">
         <form class="formSearchTask" action="">
           <div class="divSearchTask">
             <label for="searchTask"></label>
-            <input class="inputSearchTask" type="text" id="searchTask" placeholder="Ej: gym">
+            <input
+              class="inputSearchTask"
+              type="text"
+              id="searchTask"
+              placeholder="Ej: gym"
+            />
           </div>
           <div class="divSearchTask">
             <button class="buttonSearch" type="submit">Buscar</button>
           </div>
         </form>
 
-        <ul class="js-ul">
-        </ul>
+        <ul class="js-ul"></ul>
       </section>
-  </main>
+    </main>
 
-  <script type="text/javascript" src="./js/main.js"></script>
-</body>
+    <script type="text/javascript" src="./js/main.js"></script>
+  </body>
 </html>
