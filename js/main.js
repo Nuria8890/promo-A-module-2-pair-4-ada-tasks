@@ -12,17 +12,40 @@ let tasks = [];
 const paintingTasks = (tasksToPaint) => {
   ul.innerHTML = "";
   for (const task of tasksToPaint) {
-    ul.innerHTML += `
-      <li class="${task.completed === true ? "strike" : ""}">
-        <input type="checkbox" id="${task.id}" name="tasks" value="${
-      task.id
-    }" ${task.completed === true ? "checked" : ""}>
-        <label for="${task.id}">
-        ${task.name}
-        </label>
-      </li>
-      `;
+    const newLi = document.createElement("li");
+    newLi.classList = task.completed === true ? "strike" : "";
+
+    const newInput = document.createElement("input");
+    newInput.type = "checkbox";
+    newInput.id = task.id;
+    newInput.name = "tasks";
+    newInput.value = task.id;
+    if (task.completed) {
+      newInput.setAttribute("checked", task.completed);
+    }
+    const newLabel = document.createElement("label");
+    newLabel.setAttribute("for", task.id);
+    const newContentLabel = document.createTextNode(task.name);
+
+    newLi.appendChild(newInput);
+    newLabel.appendChild(newContentLabel);
+    newLi.appendChild(newLabel);
+    ul.appendChild(newLi);
   }
+
+  // ul.innerHTML = "";
+  // for (const task of tasksToPaint) {
+  //   ul.innerHTML += `
+  //     <li class="${task.completed === true ? "strike" : ""}">
+  //       <input type="checkbox" id="${task.id}" name="tasks" value="${
+  //     task.id
+  //   }" ${task.completed === true ? "checked" : ""}>
+  //       <label for="${task.id}">
+  //       ${task.name}
+  //       </label>
+  //     </li>
+  //     `;
+  // }
 };
 
 // Almacena las tareas que hay en localStorage
@@ -72,6 +95,7 @@ const handleClickBtnAdd = (event) => {
   const newTask = {
     name: inputTask,
     completed: false,
+    // Como no existe id, las nuevas tareas no se tachan
   };
   tasks.push(newTask);
   console.log("tasks es", tasks);
